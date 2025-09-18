@@ -1,0 +1,20 @@
+{
+  "name": "tool-practice",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No tests yet\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hohhh/tool-practice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hohhh/tool-practice/issues"
+  },
+  "homepage": "https://github.com/hohhh/tool-practice#readme",
+  "description": ""
+}
