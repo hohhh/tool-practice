@@ -1,0 +1,27 @@
+name: 특정 브랜치에서만 테스트 자동화하기
+on:
+  push:
+    branches:
+      - dev # dev 브랜치 자체
+      - dev/* # dev/로 시작하는 모든 브랜치
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Github Repository 파일 불러오기
+        uses: actions/checkout@v4
+
+      - name: Node.js 설치
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          # cache: Actions에서 매번 npm install을 처음부터 하지 않게 하는 옵션
+
+      - name: 의존성(라이브러리) 설치
+        run: npm ci
+
+      - name: 테스트 실행하기
+        run: npm run test -- --verbose
+        # --verbose: (테스트 로그 자세히 출력)
