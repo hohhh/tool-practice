@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🔮 MY-TIL-WIKI
 
-## Getting Started
+생각나는 대로 적는 **개발 지식 창고**.
 
-First, run the development server:
+Today I Learned (TIL) 기록, 코드 스니펫, 에러 로그, 주제별 정리, 아카이브 자료, 위키 스타일 문서까지 전부 모아두는 곳.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 🚀 Goals
+
+- **매일의 배움을 기록**: Today I Learned 정신으로 일일 학습 로그 작성하기
+- **학습 -> 기록 루프 확립**: 배우는 것, 깨달은 것, 시행착오까지 모두 기록하기
+- **나만의 개발 위키 구축**: 리서치 히스토리와 함께 지식 아카이브 만들기
+- **"잊지 않기 위한 글쓰기"**: 짧게 적더라도, 한 번 더 정리해서 지식으로 남기기
+- **맥락과 연결 중심**: 단순 반복보다 기술과 사고의 연결점에 집중하기
+
+---
+
+## ✨ Rules
+
+- **하루 최소 1회**: 핵심 키워드 중심으로 작성
+- **"왜"에 집중**: 단순 지식보다 배운 이유와 맥락 중심
+- **짧게, 명확하게**: 코드/문제/해결과정을 요약으로 기록
+- **코드 분리**: 예시 코드는 `/snippets`에 따로 저장
+- **문서 체계**: `docs/`는 운영 규칙과 참고자료 정리용
+- **정기 회고**: 주간/월간 회고 포함
+
+---
+
+## 🗂️ Categories
+
+- **TIL**: 날짜별 학습 로그 (짧은 단위의 학습 중심)
+- **Topics**: 특정 주제의 심화 정리 (React, Next.js, TypeScript 등)
+- **Snippets**: 자주 쓰는 코드, 설정 파일, 단축 패턴과 같은 코드 조각
+- **Error**: 에러 원인과 해결 과정
+- **Docs**: 레포 운영 규칙, 참고자료(Ref) 모음
+- **Misc**: 잡동사니, 아이디어, 재미있는 발견, 링크 목록
+- **Packages**: npm 패키지, 환경 설정, 도구 리소스
+
+---
+
+## 📂 Structure
+
+```
+PUBLIC/
+SRC/
+TIL/
+├── til/           # 날짜별 학습 로그
+├── topics/        # 주제별 정리
+├── snippets/      # 코드 조각 모음
+├── error-logs/    # 에러 로그 정리
+├── docs/          # conventions, templates, 참고자료
+└── archive/
+    ├── misc/      # 링크, 발견, 임시 기록
+    └── packages/  # 패키지, 설정 자료 모음
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Conventions
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Commit Rules
 
-## Learn More
+#### - Core Rules
 
-To learn more about Next.js, take a look at the following resources:
+| 이모지 | 타입(Key)   | 의미                                       | 예시                                                              |
+| :----: | :---------- | :----------------------------------------- | :---------------------------------------------------------------- |
+|   📚   | **TIL**     | 날짜별 학습 로그                           | `📚 til: 프로젝트 세팅 및 CI/CD 워크플로우, 파이프라인 구성 정리` |
+|   🔍   | **Topic**   | 주제별 정리 문서 (심화 학습/분석 중심)     | `🔍 topic: React Hooks 정리 업데이트`                             |
+|   💻   | **Snippet** | 코드 조각, 설정, 함수 등 스니펫 추가/수정  | `💻 snippet: debounce 함수 추가`                                  |
+|   🐛   | **Error**   | 에러 원인 및 해결 과정 기록                | `🐛 error: npm install 오류 해결 로그`                            |
+|   📝   | **Docs**    | 운영 문서, 규칙, 참고자료 정리             | `📝 docs: 커밋 규칙 README에 추가`                                |
+|   📌   | **Pin**     | 중요 표시 / 정리 예정 주제 표시            | `📌 pin: React Suspense -> 주제별 정리 필요`                      |
+|   🧪   | **Test**    | 새로운 라이브러리, 설정, 기능 테스트       | `🧪 test: CI 워크플로우 검증용 테스트 추가`                       |
+|   🎸   | **Misc**    | 흥미로운 발견, 아이디어, 잡동사니 아카이브 | `🎸 misc: 재미있는 npm 패키지 발견 (is-even)`                     |
+|   🚚   | **Move**    | 파일명/폴더 구조 변경, 이동                | `🚚 move: TIL 파일명 정리`                                        |
+|   🗑️   | **Remove**  | 불필요한 파일/폴더 삭제                    | `🗑️ remove: 중복 파일 제거`                                       |
+|   🔧   | **Chore**   | 유지보수, 설정, 환경 정리 (.gitkeep 등)    | `🔧 chore: snippets 폴더 .gitkeep 추가`                           |
+|   🎨   | **Style**   | 디자인, 비주얼, 색상 관련 수정             | `🎨 style: 다크 모드 색상 팔레트 추가`                            |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### - Optional Rules
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| 이모지 | 타입(Key)   | 의미                  | 예시                                |
+| :----: | :---------- | :-------------------- | :---------------------------------- |
+|   📦   | **Package** | 패키지/환경 세팅 자료 | `📦 package: lint/format 초기 세팅` |
+|   👷   | **WIP**     | 작업중/미완성         | `👷 wip: React Query 키 설계 초안`  |
+|   👽   | **Inspire** | 참고/영감 자료        | `👽 inspire: Dribbble UI 레퍼런스`  |
+|   🙏   | **Thanks**  | 도움받은 기록         | `🙏 thanks: @username 피드백 반영`  |
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📌 Motto
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> 짧게, 자주!
