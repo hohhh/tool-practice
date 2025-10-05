@@ -1,0 +1,25 @@
+name: Github Actions Job output
+on: push
+
+jobs:
+  create-output:
+    runs-on: ubuntu-latest
+    outputs:
+      greeting: ${{ steps.save-output.outputs.message }}
+      # job의 output key(이름)
+    steps:
+      - name: output 저장
+        id: save-output
+        run: echo "message=안녕" >> $GITHUB_OUTPUT
+
+      - name: output 사용
+        run: echo "저장된 키는 ${{ steps.save-output.outputs.message }}입니다."
+
+  use-output:
+    runs-on: ubuntu-latest
+    # job(create-output)에서 만든 outputs를 해당 job(use-output)에서 사용하기 위해선
+    # job(create-output)이 싪패하면 안되기 때문에 needs가 필요합니다.
+    needs: create-output
+    steps:
+      - name: output 사용
+        run: echo "이 job에서 사용할 output은 ${{ needs.create-output.outputs.greeting }}입니다."
