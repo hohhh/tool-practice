@@ -1,0 +1,13 @@
+name: 스케줄 작업
+on:
+  schedule:
+    # 매일 자정(UTC)에 실행
+    - cron: "0 0 * * *"
+    # CRON 표현식 형식: '분(0-59) 시간(0-23) 일(1-31) 월(1-12) 요일(0-6, 0=일요일)'
+
+jobs:
+  scheduled-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 정기 작업 실행
+        run: echo "스케줄에 따라 실행되는 작업입니다."
