@@ -1,0 +1,18 @@
+name: Github Actions if 조건문 (브랜치 조건 분기)
+on:
+  push:
+    branches:
+      - dev
+      - main
+
+jobs:
+  if-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: dev 브랜치일 때만 실행
+        if: github.ref == 'refs/heads/dev'
+        run: echo "dev 브랜치에 푸시되었고, Staging 환경에 배포합니다."
+
+      - name: main 브랜치일 때만 실행
+        if: github.ref == 'refs/heads/main'
+        run: echo "main 브랜치에 푸시되었고, Production 환경에 배포합니다."
